@@ -12,10 +12,6 @@ defmodule Hello do
   end
 
   def get(store, key) do
-    if Map.has_key?(store, key) do
-      {:ok, Map.get(store, key)}
-    else
-      {:error, :notfound}
-    end
+    Map.get(store, key)
   end
 end

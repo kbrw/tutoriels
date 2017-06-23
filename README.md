@@ -97,3 +97,6 @@ Basic API
 Plug API with bucket
 
 ## Going further
+
+* Return 404 if Store.get returns nil
+* Add "/hello" returning all key/value pairs from Store

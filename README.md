@@ -66,3 +66,24 @@ Telnet API on port 2323
 * Implement new commands
 * Close TCP connection when "BYE"
 * Add CREATE command to launch new bucket (spawn GenServer)
+
+# HelloRest0
+
+Basic API
+
+## Knowledge
+
+* Minimalist API with ewebmachine
+
+## Going further
+
+* Add JSON support (poison deps already included)
+
+# HelloRest1
+
+## Knowledge
+
+* Implements PUT + DELETE
+
+## Going further
+

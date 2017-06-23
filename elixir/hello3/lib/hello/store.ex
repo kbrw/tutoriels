@@ -1,16 +1,16 @@
 defmodule Hello.Store do
   use GenServer
 
-  def start_link do
-    GenServer.start_link(__MODULE__, nil, name: :store)
+  def start_link(name) do
+    GenServer.start_link(__MODULE__, nil, name: name)
   end
 
-  def put(key, value) do
-    GenServer.cast(:store, {:store, key, value})
+  def put(ref, key, value) do
+    GenServer.cast(ref, {:store, key, value})
   end
 
-  def get(key, default \\ nil) do
-    GenServer.call(:store, {:get, key}) || default
+  def get(ref, key, default \\ nil) do
+    GenServer.call(ref, {:get, key}) || default
   end
 
   ###

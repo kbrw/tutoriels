@@ -78,6 +78,7 @@ Basic API
 ## Going further
 
 * Add JSON support (poison deps already included)
+* Try PUT: observe 405
 
 # HelloRest1
 
@@ -87,3 +88,12 @@ Basic API
 
 ## Going further
 
+* PUT request without 'content-type': observe 415
+
+# HelloRest2
+
+## Knowledge
+
+Plug API with bucket
+
+## Going further

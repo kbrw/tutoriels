@@ -3,26 +3,25 @@ defmodule Hello.Cli.Server do
   def start(state) do
     case :gen_tcp.accept(state.lsock) do
       {:ok, sock} ->
-	loop(sock, state)
-	start(state)
+        loop(sock, state)
+        start(state)
       other ->
-	IO.puts("TCP accept error: #{inspect other}")
+        IO.puts("TCP accept error: #{inspect other}")
     end
   end
-
   
   defp loop(sock, state) do
     :inet.setopts(sock, active: :once)
     receive do
       {:tcp, ^sock, data} ->
-	case process(data, state) do
-	  {:reply, ans, state} ->
+        case process(data, state) do
+          {:reply, ans, state} ->
             :gen_tcp.send(sock, ans)
-	    loop(sock, state)
-	  :halt ->
-	    IO.puts("Bye...")
-	    :ok
-	end
+            loop(sock, state)
+          :halt ->
+            IO.puts("Bye...")
+            :ok
+        end
       {:tcp_close, ^sock} ->
         IO.puts("TCP socket #{inspect sock} closed [#{self()}]")
         :ok
